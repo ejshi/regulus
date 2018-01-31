@@ -29,7 +29,7 @@ import tk.mybatis.mapper.entity.Example;
  * @version @param <PK>
  * @since V1.0
  */
-public class BaseService<T,PK extends java.io.Serializable> {
+public class BaseService<T, PK extends java.io.Serializable> {
     
     @Resource
     private BaseMapper<T> baseMapper;

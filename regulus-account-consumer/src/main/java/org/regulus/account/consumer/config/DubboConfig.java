@@ -1,7 +1,7 @@
 /**
- * Project Name:regulus-account-provider
+ * Project Name:regulus-account-consumer
  * File Name:DubboConfig.java
- * Package Name:org.regulus.account.provider
+ * Package org.regulus.account.consumer.config
  * Date:2018年1月26日下午5:00:58
  * Copyright (c) 2018, http://www.richinfo.cn All Rights Reserved.
  *
