@@ -1,5 +1,7 @@
 package org.regulus.account.consumer.model.reqest;
 
+import javax.validation.constraints.Null;
+
 import org.hibernate.validator.constraints.Length;
 
 import io.swagger.annotations.ApiModel;
@@ -21,10 +23,12 @@ public class UserRequest implements java.io.Serializable{
 	@ApiModelProperty("昵称")
     private String nickname;
     
+	@Null(groups = Edit.class)
 	@Length(max=50, groups = Add.class)
 	@ApiModelProperty("用户名")
     private String username;
     
+	@Null(groups = Edit.class)
 	@Length(max=50, groups = Add.class)
 	@ApiModelProperty("密码")
     private String password;

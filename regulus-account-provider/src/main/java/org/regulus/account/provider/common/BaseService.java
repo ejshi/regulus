@@ -46,6 +46,11 @@ public class BaseService<T, PK extends java.io.Serializable> {
     public List<T> selectByExample(Example example){
         return baseMapper.selectByExample(example);
     }
+    
+    public List<T> select(T t){
+        return baseMapper.select(t);
+    }
+    
     public List<T> selectByIds(String ids){
          return baseMapper.selectByIds(ids);
     }

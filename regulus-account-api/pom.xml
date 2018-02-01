@@ -18,6 +18,13 @@
 	</properties>
 
 	<dependencies>
+	
+	   <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>regulus-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
 		<dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>

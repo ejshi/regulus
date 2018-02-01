@@ -1,16 +1,12 @@
 /**
  * Project Name:regulus-account-api
- * File Name:UserServiceProvider.java
- * Package Name:org.regulus.account.api.dubbo.usercenter
  * Date:2018年1月26日下午4:53:09
  * Copyright (c) 2018, http://www.richinfo.cn All Rights Reserved.
- *
-*/
+ */
 
 package org.regulus.account.api.dubbo.usercenter;
 
-import java.util.List;
-
+import org.regulus.account.api.common.BaseProvider;
 import org.regulus.account.api.model.usercenter.User;
 
 /**
@@ -19,10 +15,7 @@ import org.regulus.account.api.model.usercenter.User;
  * Date:     2018年1月26日 下午4:53:09 <br/>
  * @author   shijun@richinfo.cn
  */
-public interface UserProvider {
+public interface UserProvider extends BaseProvider<User, String>{
     
-    User findByPrimaryKey(String id);
-    
-    List<User> selectUserByUsername(String username);
 }
 
