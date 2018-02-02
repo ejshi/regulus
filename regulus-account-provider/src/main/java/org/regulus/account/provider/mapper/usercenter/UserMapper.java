@@ -7,7 +7,7 @@
  *
 */
 
-package org.regulus.account.provider.mapper;
+package org.regulus.account.provider.mapper.usercenter;
 
 import java.util.List;
 

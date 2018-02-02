@@ -7,7 +7,6 @@ package org.regulus.account.provider.common;
 
 import org.regulus.account.api.common.BaseProvider;
 import org.regulus.common.model.PageResultModel;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -22,40 +21,42 @@ import com.github.pagehelper.PageInfo;
  * @version @param <PK>
  * @since V1.0
  */
-public class BaseProviderImpl<T ,PK extends java.io.Serializable> implements BaseProvider<T, PK> {
+public abstract class BaseProviderImpl<T ,PK extends java.io.Serializable> implements BaseProvider<T, PK> {
 
-    @Autowired
-    private BaseService<T, PK> baseService ;
+//    @Autowired
+//    private BaseService<T, PK> baseService ;
+    
+    public abstract BaseService<T, PK> getBaseService(); 
     
     @Override
     public T findByPrimaryKey(PK pk) {
         
-        return baseService.findByPrimaryKey(pk);
+        return getBaseService().findByPrimaryKey(pk);
     }
 
     @Override
     public PageResultModel<T> selectWithPage(T t, int pageNum, int pageSize) {
         PageInfo<T> pageInfo = 
-                PageHelper.startPage(pageNum, pageSize).doSelectPageInfo(() -> baseService.select(t));
+                PageHelper.startPage(pageNum, pageSize).doSelectPageInfo(() -> getBaseService().select(t));
         return new PageResultModel<T>(pageInfo.getTotal(), pageInfo.getList());
     }
 
     @Override
     public void insertSelective(T t) {
         
-        baseService.insertSelective(t);        
+        getBaseService().insertSelective(t);        
     }
 
     @Override
     public void updateByPrimaryKeySelective(T t) {
         
-        baseService.updateByPrimaryKeySelective(t);
+        getBaseService().updateByPrimaryKeySelective(t);
     }
 
     @Override
     public void deleteByPrimaryKey(PK pk) {
         
-        baseService.deleteByPrimaryKey(pk);
+        getBaseService().deleteByPrimaryKey(pk);
     }
 }
 

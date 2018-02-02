@@ -11,8 +11,6 @@ package org.regulus.account.provider.common;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
@@ -29,13 +27,15 @@ import tk.mybatis.mapper.entity.Example;
  * @version @param <PK>
  * @since V1.0
  */
-public class BaseService<T, PK extends java.io.Serializable> {
+public abstract class BaseService<T, PK extends java.io.Serializable> {
     
-    @Resource
-    private BaseMapper<T> baseMapper;
+//    @Resource
+//    private BaseMapper<T> baseMapper;
+    
+    public abstract BaseMapper<T> getBaseMapper();
     
     public T findByPrimaryKey(PK id){
-        return baseMapper.selectByPrimaryKey(id);
+        return getBaseMapper().selectByPrimaryKey(id);
     }
     
     public T findOneByExample(Example example){
@@ -44,49 +44,49 @@ public class BaseService<T, PK extends java.io.Serializable> {
     }
     
     public List<T> selectByExample(Example example){
-        return baseMapper.selectByExample(example);
+        return getBaseMapper().selectByExample(example);
     }
     
     public List<T> select(T t){
-        return baseMapper.select(t);
+        return getBaseMapper().select(t);
     }
     
     public List<T> selectByIds(String ids){
-         return baseMapper.selectByIds(ids);
+         return getBaseMapper().selectByIds(ids);
     }
     
     public int countByExample(Example example){
-        return baseMapper.selectCountByExample(example);
+        return getBaseMapper().selectCountByExample(example);
     }
     
     @Transactional(rollbackFor = Exception.class)
     public void insertSelective(T t){
-        baseMapper.insertSelective(t);
+        getBaseMapper().insertSelective(t);
     }
     
     @Transactional(rollbackFor = Exception.class)
     public void updateByPrimaryKeySelective(T t){
-        baseMapper.updateByPrimaryKeySelective(t);
+        getBaseMapper().updateByPrimaryKeySelective(t);
     }
     
     @Transactional(rollbackFor = Exception.class)
     public void updateByExampleSelective(T t,Example example){
-        baseMapper.updateByExampleSelective(t, example);
+        getBaseMapper().updateByExampleSelective(t, example);
     }
     
     @Transactional(rollbackFor = Exception.class)
     public void deleteByExample(Example example){
-        baseMapper.deleteByExample(example);
+        getBaseMapper().deleteByExample(example);
     }
     
     @Transactional(rollbackFor = Exception.class)
     public void deleteByIds(String ids){
-        baseMapper.deleteByIds(ids);
+        getBaseMapper().deleteByIds(ids);
     }
     
     @Transactional(rollbackFor = Exception.class)
     public void deleteByPrimaryKey(PK id){
-        baseMapper.deleteByPrimaryKey(id);
+        getBaseMapper().deleteByPrimaryKey(id);
     }
 }
 

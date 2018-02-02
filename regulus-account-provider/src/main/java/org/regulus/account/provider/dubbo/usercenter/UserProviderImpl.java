@@ -12,6 +12,9 @@ package org.regulus.account.provider.dubbo.usercenter;
 import org.regulus.account.api.dubbo.usercenter.UserProvider;
 import org.regulus.account.api.model.usercenter.User;
 import org.regulus.account.provider.common.BaseProviderImpl;
+import org.regulus.account.provider.common.BaseService;
+import org.regulus.account.provider.service.usercenter.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.dubbo.config.annotation.Service;
 
@@ -23,9 +26,17 @@ import com.alibaba.dubbo.config.annotation.Service;
  */
 @Service
 public class UserProviderImpl extends BaseProviderImpl<User, String> implements UserProvider{
+    
+    @Autowired
+    private UserService userService;
+    
+    @Override
+    public BaseService<User, String> getBaseService() {
+        
+        return userService;
+    }
 
-//    @Autowired
-//    private UserService userService;
+//    
     
     
 }

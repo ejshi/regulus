@@ -10,9 +10,9 @@ import java.util.List;
 
 import org.regulus.account.api.dubbo.usercenter.UserProvider;
 import org.regulus.account.api.model.usercenter.User;
-import org.regulus.account.consumer.model.query.UserQuery;
-import org.regulus.account.consumer.model.reqest.UserRequest;
-import org.regulus.account.consumer.model.response.UserResponse;
+import org.regulus.account.consumer.model.query.usercenter.UserQuery;
+import org.regulus.account.consumer.model.request.usercenter.UserRequest;
+import org.regulus.account.consumer.model.response.usercenter.UserResponse;
 import org.regulus.common.enums.ResponseCodeEnum;
 import org.regulus.common.model.PageResultModel;
 import org.regulus.common.model.ResponseJson;

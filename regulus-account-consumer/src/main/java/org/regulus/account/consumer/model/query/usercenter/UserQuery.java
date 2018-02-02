@@ -1,4 +1,4 @@
-package org.regulus.account.consumer.model.query;
+package org.regulus.account.consumer.model.query.usercenter;
 
 import org.regulus.common.model.PageModel;
 

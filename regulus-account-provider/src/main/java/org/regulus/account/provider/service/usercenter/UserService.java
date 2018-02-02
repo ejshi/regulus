@@ -7,15 +7,16 @@
  *
 */
 
-package org.regulus.account.provider.service;
+package org.regulus.account.provider.service.usercenter;
 
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.regulus.account.api.model.usercenter.User;
+import org.regulus.account.provider.common.BaseMapper;
 import org.regulus.account.provider.common.BaseService;
-import org.regulus.account.provider.mapper.UserMapper;
+import org.regulus.account.provider.mapper.usercenter.UserMapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,6 +31,12 @@ public class UserService extends BaseService<User, String>{
     
     @Resource
     private UserMapper userMapper;
+    
+    @Override
+    public BaseMapper<User> getBaseMapper() {
+        
+        return userMapper;
+    }
     
     public List<User> selectUserByUsername(String username){
         User user = new User();

@@ -1,41 +1,28 @@
-package org.regulus.account.consumer.model.reqest;
-
-import javax.validation.constraints.Null;
-
-import org.hibernate.validator.constraints.Length;
+package org.regulus.account.consumer.model.response.usercenter;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 /**
  * 
- * @ClassName: UserRequest  
- * @Description: 数据请求对象 
+ * @ClassName: UserResponse  
+ * @Description: 数据相应对象
  * @author ejshi  
- * @date 2018年1月31日 下午11:32:54  
+ * @date 2018年1月31日 下午11:33:37  
  *
  */
 @ApiModel
-public class UserRequest implements java.io.Serializable{
-	
-	private static final long serialVersionUID = 7359244451979212850L;
+public class UserResponse implements java.io.Serializable{
 
-	@Length(max=50, groups = {Add.class,Edit.class})
+	private static final long serialVersionUID = -3621671614565040689L;
+
 	@ApiModelProperty("昵称")
     private String nickname;
     
-	@Null(groups = Edit.class)
-	@Length(max=50, groups = Add.class)
 	@ApiModelProperty("用户名")
     private String username;
     
-	@Null(groups = Edit.class)
-	@Length(max=50, groups = Add.class)
 	@ApiModelProperty("密码")
     private String password;
-	
-	public interface Add {}
-	
-	public interface Edit {}
 
 	public String getNickname() {
 		return nickname;
@@ -60,4 +47,6 @@ public class UserRequest implements java.io.Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 }
