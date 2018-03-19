@@ -10,7 +10,6 @@
 package org.regulus.oauth.center.security;
 
 import org.apache.commons.lang3.StringUtils;
-import org.regulus.oauth.center.security.CustomAuthenticationDetailsSource.CustomWebAuthenticationDetails;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;

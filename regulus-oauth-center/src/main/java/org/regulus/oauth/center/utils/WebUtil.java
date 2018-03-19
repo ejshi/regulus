@@ -6,10 +6,12 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.regulus.oauth.center.model.usercenter.SecurityUser;
 import org.regulus.oauth.center.model.usercenter.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -32,10 +34,8 @@ public class WebUtil {
      * @return
      */
     public static User getCurrentUser(){
-//        SecurityUser principal = (SecurityUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        return principal.getUser();
-        
-        return null;
+        SecurityUser principal = (SecurityUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return principal.getUser();
     }
     
     public static void send(HttpServletResponse response,Object result) {
