@@ -53,7 +53,7 @@ public class RoleController {
         role.setId(StringUtil.uuid());
         roleProvider.insertSelective(role);
         
-        return new ResponseJson<Object>(true, ResponseCodeEnum.SUCCESS);
+        return new ResponseJson<Object>(true, ResponseCodeEnum.REQUEST_SUCCESS);
     }
     
     @ApiOperation(value = "修改" ,notes="修改数据记录")
@@ -67,7 +67,7 @@ public class RoleController {
         
         roleProvider.updateByPrimaryKeySelective(role);
         
-        return new ResponseJson<Object>(true, ResponseCodeEnum.SUCCESS);
+        return new ResponseJson<Object>(true, ResponseCodeEnum.REQUEST_SUCCESS);
     }
     
     @ApiOperation(value = "删除" ,notes="删除数据记录")
@@ -76,7 +76,7 @@ public class RoleController {
         
         roleProvider.deleteByPrimaryKey(id);
         
-        return new ResponseJson<Object>(true, ResponseCodeEnum.SUCCESS);
+        return new ResponseJson<Object>(true, ResponseCodeEnum.REQUEST_SUCCESS);
     }
     
     @ApiOperation(value = "查询" ,notes="根据id，查询相应数据记录")
@@ -87,7 +87,7 @@ public class RoleController {
         
         RoleResponse roleResponse = BeanCopierUtil.invoke(role, RoleResponse.class);
         
-        return new ResponseJson<RoleResponse>(true, ResponseCodeEnum.SUCCESS, roleResponse);
+        return new ResponseJson<RoleResponse>(true, ResponseCodeEnum.REQUEST_SUCCESS, roleResponse);
     }
     
     @ApiOperation(value = "查询" ,notes="查询相应数据记录，分页显示")
@@ -99,6 +99,6 @@ public class RoleController {
         
         List<RoleResponse> roleResponses = BeanCopierUtil.invokeList(pageResult.getDataList(), RoleResponse.class);
         
-        return new ResponseJson<List<RoleResponse>>(true, ResponseCodeEnum.SUCCESS, roleResponses,pageResult.getTotal());
+        return new ResponseJson<List<RoleResponse>>(true, ResponseCodeEnum.REQUEST_SUCCESS, roleResponses,pageResult.getTotal());
     }
 }

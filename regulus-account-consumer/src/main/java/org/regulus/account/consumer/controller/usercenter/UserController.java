@@ -50,7 +50,7 @@ public class UserController {
         
         userProvider.insertSelective(user);
         
-    	return new ResponseJson<Object>(true, ResponseCodeEnum.SUCCESS);
+    	return new ResponseJson<Object>(true, ResponseCodeEnum.REQUEST_SUCCESS);
     }
     
     @ApiOperation(value = "修改" ,notes="修改数据记录")
@@ -64,7 +64,7 @@ public class UserController {
         
         userProvider.updateByPrimaryKeySelective(user);
         
-        return new ResponseJson<Object>(true, ResponseCodeEnum.SUCCESS);
+        return new ResponseJson<Object>(true, ResponseCodeEnum.REQUEST_SUCCESS);
     }
     
     @ApiOperation(value = "删除" ,notes="删除数据记录")
@@ -73,7 +73,7 @@ public class UserController {
         
         userProvider.deleteByPrimaryKey(id);
         
-        return new ResponseJson<Object>(true, ResponseCodeEnum.SUCCESS);
+        return new ResponseJson<Object>(true, ResponseCodeEnum.REQUEST_SUCCESS);
     }
     
     @ApiOperation(value = "查询" ,notes="根据id，查询相应数据记录")
@@ -84,7 +84,7 @@ public class UserController {
         
         UserResponse userResponse = BeanCopierUtil.invoke(user, UserResponse.class);
         
-        return new ResponseJson<UserResponse>(true, ResponseCodeEnum.SUCCESS, userResponse);
+        return new ResponseJson<UserResponse>(true, ResponseCodeEnum.REQUEST_SUCCESS, userResponse);
     }
     
     @ApiOperation(value = "查询" ,notes="查询相应数据记录，分页显示")
@@ -96,7 +96,7 @@ public class UserController {
         
         List<UserResponse> userResponses = BeanCopierUtil.invokeList(pageResult.getDataList(), UserResponse.class);
         
-        return new ResponseJson<List<UserResponse>>(true, ResponseCodeEnum.SUCCESS, userResponses,pageResult.getTotal());
+        return new ResponseJson<List<UserResponse>>(true, ResponseCodeEnum.REQUEST_SUCCESS, userResponses,pageResult.getTotal());
     }
 }
 
