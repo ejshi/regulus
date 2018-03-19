@@ -27,7 +27,6 @@ public class CustomAuthenticationDetailsSource implements AuthenticationDetailsS
 
     @Override
     public WebAuthenticationDetails buildDetails(HttpServletRequest request) {
-        System.out.println("#######################:::::::"+request.getParameter("verifyCode"));
         return new CustomWebAuthenticationDetails(request);
     }
     
@@ -42,9 +41,8 @@ public class CustomAuthenticationDetailsSource implements AuthenticationDetailsS
      */
     class CustomWebAuthenticationDetails extends WebAuthenticationDetails{
         
-        private static final long serialVersionUID = 7369670805721745561L;
-
-        private String verifyCode;
+		private static final long serialVersionUID = 6867591032451279860L;
+		private String verifyCode;
         
         public CustomWebAuthenticationDetails(HttpServletRequest request) {
             super(request);

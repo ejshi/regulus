@@ -24,9 +24,9 @@ import javax.persistence.Table;
 @Table(name="t_user")
 public class User implements java.io.Serializable{
     
-    private static final long serialVersionUID = -180073911553486569L;
+	private static final long serialVersionUID = 1787513702425487611L;
 
-    @Id
+	@Id
     @Column(name = "id")
     private String id;
     

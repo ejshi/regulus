@@ -24,13 +24,27 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @since    V1.0
  * @see 	 
  */
-public class SecurityUser extends User implements UserDetails{
+public class SecurityUser implements UserDetails{
     
-    private static final long serialVersionUID = 3794182104893757541L;
+	private static final long serialVersionUID = -4565761155687494210L;
+
+	private User user;
     
     private Collection<? extends GrantedAuthority> authorities;
+    
+    public SecurityUser(User user) {
+		super();
+		
+		this.user = user;
+	}
 
-    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+	public SecurityUser(User user, Collection<? extends GrantedAuthority> authorities) {
+		super();
+		this.user = user;
+		this.authorities = authorities;
+	}
+
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = authorities;
     }
 
@@ -39,6 +53,18 @@ public class SecurityUser extends User implements UserDetails{
         
         return authorities;
     }
+    
+    @Override
+	public String getPassword() {
+		
+		return user.getPassword();
+	}
+
+	@Override
+	public String getUsername() {
+		return user.getUsername();
+	}
+
 
     @Override
     public boolean isAccountNonExpired() {
@@ -48,8 +74,7 @@ public class SecurityUser extends User implements UserDetails{
 
     @Override
     public boolean isAccountNonLocked() {
-        
-        return !UserStatusEnum.LOCK.getCode().equals(getUserStatus());
+        return !UserStatusEnum.LOCK.getCode().equals(user.getUserStatus());
     }
 
     @Override
@@ -60,7 +85,40 @@ public class SecurityUser extends User implements UserDetails{
 
     @Override
     public boolean isEnabled() {
-        return UserStatusEnum.NORMAL.getCode().equals(getUserStatus());
+        return UserStatusEnum.NORMAL.getCode().equals(user.getUserStatus());
+    }
+    
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	@Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((user == null) ? 0 : user.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        SecurityUser other = (SecurityUser) obj;
+        if (user == null) {
+            if (other.user != null)
+                return false;
+        } else if (!user.equals(other.user))
+            return false;
+        return true;
     }
 }
 

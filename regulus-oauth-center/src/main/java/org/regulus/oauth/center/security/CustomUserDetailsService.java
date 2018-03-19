@@ -40,7 +40,7 @@ public class CustomUserDetailsService implements UserDetailsService{
             throw new UsernameNotFoundException("用户不存在");
         }
         //获取用户权限
-        SecurityUser securityUser = (SecurityUser) user;
+        SecurityUser securityUser = new SecurityUser(user);
         System.out.println(JSON.toJSONString(securityUser));
         return securityUser;
     }
