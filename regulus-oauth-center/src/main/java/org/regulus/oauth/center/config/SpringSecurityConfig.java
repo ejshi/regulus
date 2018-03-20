@@ -154,7 +154,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
     public UserDetailsService initUserDetailsService(){
         return new CustomUserDetailsService();
     }
-    
+    /**
+     * Md5加密,加密方式：password + "{" + salt.toString() + "}"以及MD5次数，具体代码参考
+     * @see org.springframework.security.authentication.encoding.BasePasswordEncoder.mergePasswordAndSalt(String, Object, boolean)
+     * <p>if you want to update this encrypt method ,you should extend Md5PasswordEncoder and @Override mergePasswordAndSalt方法</p>
+     */
     @Bean
     public Md5PasswordEncoder initMd5PasswordEncoder(){
         Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
