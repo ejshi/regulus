@@ -81,6 +81,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
             .antMatchers("/favicon.ico").permitAll()
             .antMatchers("/**/hello/**").permitAll()
             .antMatchers("/**/guest/**").permitAll()
+            .antMatchers("/**/kaptcha/**").permitAll()
             
             .anyRequest().authenticated()
             .and()
