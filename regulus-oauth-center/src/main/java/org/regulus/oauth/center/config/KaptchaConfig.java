@@ -20,12 +20,13 @@ public class KaptchaConfig {
 		properties.setProperty(Constants.KAPTCHA_BORDER_COLOR, "105,179,90");
 		properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_FONT_COLOR, "black");
 		properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_FONT_SIZE, "30");
-		properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_FONT_NAMES, "Arial,\u5b8b\u4f53");
+		//properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_FONT_NAMES, "Arial,\u5b8b\u4f53");
+		properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_CHAR_STRING, "ABCDE2345678YNMkPWX");
 		properties.setProperty(Constants.KAPTCHA_TEXTPRODUCER_CHAR_LENGTH, "4");
-		properties.setProperty(Constants.KAPTCHA_IMAGE_WIDTH, "100");
-		properties.setProperty(Constants.KAPTCHA_IMAGE_HEIGHT, "35");
-		properties.setProperty(Constants.KAPTCHA_NOISE_COLOR, "green");
-		//properties.setProperty(Constants.KAPTCHA_NOISE_IMPL, "com.google.code.kaptcha.impl.NoNoise");//去掉干扰线
+		properties.setProperty(Constants.KAPTCHA_IMAGE_WIDTH, "150");
+		properties.setProperty(Constants.KAPTCHA_IMAGE_HEIGHT, "50");
+		properties.setProperty(Constants.KAPTCHA_NOISE_COLOR, "blue");
+		properties.setProperty(Constants.KAPTCHA_NOISE_IMPL, "com.google.code.kaptcha.impl.NoNoise");//去掉干扰线
 		properties.setProperty(Constants.KAPTCHA_OBSCURIFICATOR_IMPL, "com.google.code.kaptcha.impl.ShadowGimpy");//阴影渲染效果
 		properties.setProperty(Constants.KAPTCHA_SESSION_KEY, "kaptcha.code");
 		properties.setProperty(Constants.KAPTCHA_SESSION_DATE, "kaptcha.date");

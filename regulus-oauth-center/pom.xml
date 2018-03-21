@@ -13,7 +13,7 @@
 	<name>regulus-oauth-center</name>
 
 	<properties>
-		<swagger.version>2.7.0</swagger.version>
+		<swagger.version>2.5.0</swagger.version>
 	</properties>
 
 	<dependencies>
